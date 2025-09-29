@@ -5,20 +5,28 @@ public class TipCalculator {
     //WRITE YOUR PROGRAM IN calculateTip
     public static String calculateTip(int people, int percent, double cost) { //You must use these  variable in your calculations
 
-        double tip = Math.round(cost * (percent/100.0) * 100.0)/100.0;
-        double total = Math.round((cost + tip) * 100.0)/100.0;
+        double tip = cost * (percent/100.0);
+        System.out.println("Tip: " + tip);
+
+        double total = cost + tip;
+        System.out.println("Total: " + total);
 
         double beforeTipTotalPer = Math.round((cost/people) * 100.0)/100.0;
+        System.out.println("before tip: " + beforeTipTotalPer);
+
         double tipPer = Math.round((tip/people) * 100.0)/100.0;
+        System.out.println("tip per person: " + tipPer);
+
         double totalPer = Math.round((total/people) * 100.0)/100.0;
+        System.out.println("total per person: " + totalPer);
 
         //DO NOT DELETE ANY OF THE CODE BELOW
 
         String result = "-------------------------------\n" +
                        "Total bill before tip: $" + cost + "\n" +
                        "Total percentage: " + percent + "%\n" +
-                       "Total tip: $" + tip + "\n" +
-                       "Total Bill with tip: $" + total + "\n" + 
+                       "Total tip: $" + Math.round(tip * 100.0)/100.0 + "\n" +
+                       "Total Bill with tip: $" + Math.round(total * 100.0)/100.0 + "\n" + 
                        "Per person cost before tip: $" + beforeTipTotalPer + "\n" +
                        "Tip per person: $" + tipPer + "\n" +
                        "Total cost per person: $" + totalPer + "\n" +
@@ -36,12 +44,20 @@ public class TipCalculator {
 
         //  COPY AND PASTE YOUR PROGRAM FROM calculateTip() HERE 
 
-        double tip = Math.round(cost * (percent/100.0) * 100.0)/100.0;
-        double total = Math.round((cost + tip) * 100.0)/100.0;
+        double tip = cost * (percent/100.0);
+        System.out.println("Tip: " + tip);
 
-        double beforeTipTotalPer = Math.round((cost/people) * 100)/100.0;
-        double tipPer = Math.round((tip/people) * 100)/100.0;
-        double totalPer = Math.round((total/people) * 100)/100.0;
+        double total = cost + tip;
+        System.out.println("Total: " + total);
+
+        double beforeTipTotalPer = Math.round((cost/people) * 100.0)/100.0;
+        System.out.println("before tip: " + beforeTipTotalPer);
+
+        double tipPer = Math.round((tip/people) * 100.0)/100.0;
+        System.out.println("tip per person: " + tipPer);
+
+        double totalPer = Math.round((total/people) * 100.0)/100.0;
+        System.out.println("total per person: " + totalPer);
         
         // the while loop condition is checked,
         // and if TRUE, runs the code inside.
@@ -53,23 +69,25 @@ public class TipCalculator {
         while (condition) {
             //enter your code here 
             String input = scan.nextLine();
+
+            //learned the String.equals method from ai
             if (input.equals(exit)) {
                 condition = false;
             } else {
-                itemsOrdered = itemsOrdered + input;
+                itemsOrdered = itemsOrdered + input + "\n";
             }
         }
 
         result = "-------------------------------\n" +
                        "Total bill before tip: $" + cost + "\n" +
                        "Total percentage: " + percent + "%\n" +
-                       "Total tip: $" + tip + "\n" +
-                       "Total Bill with tip: $" + total + "\n" + 
+                       "Total tip: $" + Math.round(tip * 100.0)/100.0 + "\n" +
+                       "Total Bill with tip: $" + Math.round(total * 100.0)/100.0 + "\n" + 
                        "Per person cost before tip: $" + beforeTipTotalPer + "\n" +
                        "Tip per person: $" + tipPer + "\n" +
                        "Total cost per person: $" + totalPer + "\n" +
                        "-------------------------------\n" + 
-                       "Items Ordered: \n" + 
+                       "Items ordered:\n" + 
                        itemsOrdered +
                        "-------------------------------\n";
                        ;
@@ -83,11 +101,11 @@ public class TipCalculator {
      //TEST YOUR PROGRAM IN main
      public static void main(String[] args) {
         //try different values for people, percent, and cost to test your program before running test cases
-        int people=10; 
-        int percent=8;
-        double cost=10.5;              
-        //System.out.println(calculateTip(people,percent,cost));
-        System.out.println(extraCredit(people, percent, cost));
+        int people = 2;
+        int percent = 18;
+        double cost = 5.99;             
+        System.out.println(calculateTip(people,percent,cost));
+        //System.out.println(extraCredit(people, percent, cost));
     }
 }
         
